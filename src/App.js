@@ -12,20 +12,16 @@ import TransactionPanel from "./components/TransactionPanel"
 import PropTypes from "prop-types";
 
 function App(props) {
- 
+    
   return (
     <div> 
       <div id="wrapper">
         <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <TopNav />
+            <TopNav messages={props.messages}/>
             <SideNav/>
         </nav>
-
         <div id="page-wrapper">
-
             <div className="container-fluid">
-
-                
                 <div className="row">
                     <div className="col-lg-12">
                         <h1 className="page-header">
@@ -39,40 +35,37 @@ function App(props) {
                     </div>
                 </div>
                 <div className="row">
-                    <Comments/>
-                    <Tasks/>
-                    <Orders/>
-                    <Tickets/>
+                    <Comments newComments={props.newComments}/>
+                    <Tasks newTasks={props.newTasks}/>
+                    <Orders newOrders={props.newOrders}/>
+                    <Tickets tickets={props.tickets}/>
                 </div>
                 <AreaChart/>
                 <div className="row">
                     <DonutChart/>
                     <div className="col-lg-4">
-                        <TasksPanel/>
+                        <TasksPanel tasks={props.tasks}/>
                     </div>
                     <div className="col-lg-4">
-                        {/*   </TransactionsPanel>   */}
-                        <TransactionPanel/>
-                        {/*   </TransactionsPanel>   */}
-
+                        <TransactionPanel orders={props.orders}/>
                     </div>
                 </div>
-                
-
             </div>
-            
-
         </div>
-        
-
     </div>
     </div>
-
   );
 }
-
 App.propTypes = {
-
+    tasks: PropTypes.Array,
+    messages: PropTypes.Array,
+    newComments: PropTypes.Number,
+    newTasks: PropTypes.Number,
+    newOrders: PropTypes.Number,
+    tickets: PropTypes.Number,
+    taskItem: PropTypes.String,
+    dateTime: PropTypes.String,
+    orders: PropTypes.Array, 
 };
 
 export default App;

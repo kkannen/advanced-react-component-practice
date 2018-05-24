@@ -1,13 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function TransactionRow() {
+function TransactionRow(props) {
     return (
         <tr>
-            <td>3326</td>
-            <td>10/21/2013</td>
-            <td>3:29 PM</td>
-            <td>$321.33</td>
+            <td>{props.order.id}</td>
+            <td>{props.order.orderDate}</td>
+            <td>{props.order.orderTime}</td>
+            <td>{props.order.amount}</td>
         </tr>)
       }
   
+      TransactionRow.propTypes = {
+          order: PropTypes.Object
+      }
       export default TransactionRow;

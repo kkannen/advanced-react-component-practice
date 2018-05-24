@@ -1,6 +1,6 @@
 import React from "react";
 
-function Orders() {
+function Orders(props) {
   return (
   <div className="col-lg-3 col-md-6">
         <div className="panel panel-yellow">
@@ -10,7 +10,7 @@ function Orders() {
                         <i className="fa fa-shopping-cart fa-5x"></i>
                     </div>
                     <div className="col-xs-9 text-right">
-                        <div className="huge">124</div>
+                        <div className="huge">{props.newOrders}</div>
                         <div>New Orders!</div>
                     </div>
                 </div>

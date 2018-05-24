@@ -1,6 +1,6 @@
 import React from "react";
 
-function Tickets() {
+function Tickets(props) {
   return (
     <div className="col-lg-3 col-md-6">
     <div className="panel panel-red">
@@ -10,7 +10,7 @@ function Tickets() {
                     <i className="fa fa-support fa-5x"></i>
                 </div>
                 <div className="col-xs-9 text-right">
-                    <div className="huge">13</div>
+                    <div className="huge">{props.tickets}</div>
                     <div>Support Tickets!</div>
                 </div>
             </div>

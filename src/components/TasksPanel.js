@@ -1,7 +1,11 @@
 import React from "react";
 import TaskItem from "./TaskItem"
+import PropTypes from "prop-types"
 
-function TasksPanel() {
+function TasksPanel(props) {
+    const tasky = props.tasks.map((tsk)=>{
+        return <TaskItem task={tsk}/>
+    })
   return (
 <div className="panel panel-default">
         <div className="panel-heading">
@@ -9,7 +13,7 @@ function TasksPanel() {
         </div>
         <div className="panel-body">
             <div className="list-group">
-                <TaskItem/>  
+                {tasky}  
             </div>
             <div className="text-right">
                 <a href="#">View All Activity <i className="fa fa-arrow-circle-right"></i></a>
@@ -17,5 +21,7 @@ function TasksPanel() {
         </div>
     </div>)
     }
-
+    TasksPanel.propTypes = {
+        tasks: PropTypes.Array
+    }
     export default TasksPanel;
